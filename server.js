@@ -1,16 +1,18 @@
 const express = require('express')
 const bodyParser= require('body-parser')
-const app = express()
 const MongoClient = require('mongodb').MongoClient
+const logger = require('morgan');
+const path = require('path');
+const app = express()
 
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(express.static('public'))
 app.use(bodyParser.json())
-
-
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs')
+app.use(express.static(path.join(__dirname, 'public')));
 
+// -----------------------------------------------//
 // Database Connection
+// -----------------------------------------------//
 var db
 var cloud = true;
  
@@ -35,26 +37,48 @@ MongoClient.connect(url, (err, client) => {
   db = client.db(mongodbDatabase)
   app.listen(8080, () => {
     console.log('listening on 8080')
-    console.log(db)
   })
 })
 
+// Make our db accessible to our router
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
+
+// -----------------------------------------------//
+// Routes
+// -----------------------------------------------//
+app.use('/', require('./routes/index'));
+app.use('/quotes', require('./routes/quotes'));
+
+// -----------------------------------------------//
+// Error Handling
+// -----------------------------------------------//
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error', {status:err.status, message:err.message});
+});
+
+// -----------------------------------------------//
+// CRUD functions - Move these to js files
+// -----------------------------------------------//
 app.post('/quotes', (req, res) => {
   db.collection('quotes').save(req.body, (err, result) => {
     if (err) return console.log(err)
 
-    console.log('saved to database')
+    console.log('saved to database @ ' + Date.now())
     res.redirect('/')
   })
-})
-
-app.get('/', (req, res) => {
-	var cursor = db.collection('quotes').find()
-	db.collection('quotes').find().toArray(function(err, result) {
-		if (err) return console.log(err)
-		// renders index.ejs
-		res.render('index.ejs', {quotes: result})
-	})
 })
 
 app.put('/quotes', (req, res) => {
@@ -72,4 +96,3 @@ app.put('/quotes', (req, res) => {
     res.send(result)
   })
 })
-
