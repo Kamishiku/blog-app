@@ -51,6 +51,7 @@ app.use(function(req,res,next){
 // -----------------------------------------------//
 app.use('/', require('./routes/index'));
 app.use('/quotes', require('./routes/quotes'));
+app.use('/posts', require('./routes/posts'));
 
 // -----------------------------------------------//
 // Error Handling
@@ -68,31 +69,3 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {status:err.status, message:err.message});
 });
-
-// -----------------------------------------------//
-// CRUD functions - Move these to js files
-// -----------------------------------------------//
-app.post('/quotes', (req, res) => {
-  db.collection('quotes').save(req.body, (err, result) => {
-    if (err) return console.log(err)
-
-    console.log('saved to database @ ' + Date.now())
-    res.redirect('/')
-  })
-})
-
-app.put('/quotes', (req, res) => {
-  db.collection('quotes')
-  .findOneAndUpdate({name: 'Yoda'}, {
-    $set: {
-      name: req.body.name,
-      quote: req.body.quote
-    }
-  }, {
-    sort: {_id: -1},
-    upsert: true
-  }, (err, result) => {
-    if (err) return res.send(err)
-    res.send(result)
-  })
-})
