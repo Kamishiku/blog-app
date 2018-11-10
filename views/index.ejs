@@ -1,25 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <% include partials/head %> 
+    <% include partials/head %>
 </head>
 <body>
 <% include partials/menu %>
-<div class="container-fluid bg-3 text-center">    
-  <h3>Most recent posts</h3><br>
-  <div class="row">
-    <div class="col-sm-4">
-      <p>Need to add blog posts here</p>
+<div class="container-fluid bg-3">
+    <div class="text-center">
+        <h3>Add an admin section here to add new posts?</h3><br>
+        <h3>Most recent posts</h3><br>
     </div>
-    
-    <div class="col-sm-4"> 
-      <p>Need to add blog posts here</p>
+    <% for(var i = 0; i < posts.length; i++) { %>
+    <div class="row">
+        <% if (posts[i].deleted = "false") { %>
+        <div class="col-sm-4 ">
+            <div class="post">
+                <div class="post-header">
+                    <%= posts[i].user_id %><%= posts[i].datetime %>
+                </div>
+                <div class="post-body">
+                    <% if (posts[i].video_url.length > 0) { %>
+					<object class="media-format" data="<%= posts[i].video_url %>"></object>
+                    <% } else{ %>
+                    <div class="fakeimg" style="height:200px;">No Video</div>
+                    <% } %>
+                    <h2><%= posts[i].title %></h2>
+                    <% if (posts[i].content.length > 100) { %>
+                    <p><%= posts[i].content %>...</p>
+                    <% } else{ %>
+                    <p><%= posts[i].content %></p>
+                    <% } %>
+                    <p><%= posts[i].photo_collection %></p>
+                </div>
+                <div class="post-footer">
+                    Likes: <%= posts[i].like_count %>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 ">
+            <div class="post">
+                <div class="post-body">
+                    <% if (posts[i].video_url.length > 0) { %>
+					<object class="media-format" data="<%= posts[i].video_url %>"></object>
+                    <% } else{ %>
+                    <div class="fakeimg" style="height:200px;">No Video</div>
+                    <% } %>
+                    <h2><%= posts[i].title %></h2>
+                    <h5>
+                            <%= posts[i].user_id %><%= posts[i].datetime %>
+                      
+                    </h5>
+                    <% if (posts[i].content.length > 100) { %>
+                    <p><%= posts[i].content %>...</p>
+                    <% } else{ %>
+                    <p><%= posts[i].content %></p>
+                    <% } %>
+                    <p><%= posts[i].photo_collection %></p>
+                </div>
+                <div class="post-footer">
+                    Likes: <%= posts[i].like_count %>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 ">
+            <div class="post-old">
+                <div class="post-body">
+                    <% if (posts[i].video_url.length > 0) { %>
+                    <div class="fakeimg">No Video</div>		
+                    <% } else{ %>
+                   	<object class="media-format" data="<%= posts[i].video_url %>"></object>
+                    <% } %>
+                    <h2><%= posts[i].title %></h2>
+                    <h5>
+                        <div class="post-left">
+                            <%= posts[i].user_id %><%= posts[i].datetime %>
+                        </div>
+                    </h5>
+                    <% if (posts[i].content.length > 100) { %>
+                    <p><%= posts[i].content %>...</p>
+                    <% } else{ %>
+                    <p><%= posts[i].content %></p>
+                    <% } %>
+                    <p><%= posts[i].photo_collection %></p>
+                </div>
+                <div class="post-footer-old">
+                    Likes: <%= posts[i].like_count %>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 ">
+            <div class="post-old">
+                <div class="post-body-old">
+                    <% if (posts[i].video_url.length > 0) { %>
+					<object class="media-format" data="<%= posts[i].video_url %>"></object>
+                    <% } else{ %>
+                    <div class="fakeimg" style="height:200px;">No Video</div>
+                    <% } %>
+                    <h2 style="margin-top: 0"><%= posts[i].title %></h2>
+                    <h5>
+                        <div class="post-left">
+                            <%= posts[i].user_id %><%= posts[i].datetime %>
+                        </div>
+                    </h5>
+                    <% if (posts[i].content.length > 100) { %>
+                    <p><%= posts[i].content %>...</p>
+                    <% } else{ %>
+                    <p><%= posts[i].content %></p>
+                    <% } %>
+                    <p><%= posts[i].photo_collection %></p>
+                </div>
+                <div class="post-footer-old">
+                    Likes: <%= posts[i].like_count %>
+                </div>
+            </div>
+        </div>
+        <% } %>
     </div>
-    
-    <div class="col-sm-4"> 
-      <p>Need to add blog posts here</p>
-    </div>
-  </div>
+    <% } %>
+
+    <form action="/" method="POST">
+        <input type="text" placeholder="user_id" name="user_id">
+        <input type="text" placeholder="title" name="title">
+        <input type="text" placeholder="content" name="content">
+        <input type="text" placeholder="video_url" name="video_url">
+        <input type="text" placeholder="photo_collection" name="photo_collection">
+        <input type="text" placeholder="datetime" name="datetime">
+        <input type="text" placeholder="like_count" name="like_count">
+        <button type="submit">Submit</button>
+    </form>
 </div>
 </body>
 <% include partials/script %>
