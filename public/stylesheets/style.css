@@ -5,7 +5,6 @@
 }
 .container-fluid {
     padding-bottom: 70px;
-    margin: 1%
 }
 .container {
 	width: 100%;
@@ -25,23 +24,27 @@
 .active>a {
     color: #1abc9c !important;
 }
-
+/*
 .post {
     box-sizing: content-box;
     color: #1abc9c !important;
     margin-bottom: 10px;
-}
+    //box-shadow: 5px 10px #e7e7e7; 
+    max-width: 540px;
+    min-width: 25%;
+    float: left;
+}*/
 .post-header {
     padding-left: 15px;
     padding-top: 5px;
-    height: 30px;
+    /* height: 30px; */
     background-color: #e7e7e7;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
 .post-body {
-	padding: 10px;
-    height: 360px;
+    /* padding: 10px; */
+    height: 20vw;
 }
 .post-footer {
 	text-align: end;
@@ -53,6 +56,7 @@
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
+/*
 .post-old {
     box-sizing: content-box;
     border: 5px solid #e7e7e7;
@@ -60,37 +64,175 @@
     color: #1abc9c !important;
     margin-bottom: 10px;
     margin-top: 20px;
-}
+    margin-right: 20px;
+    max-width: 540px;
+    min-width: 25%;
+    float: left;
+}*/
 .post-body-old {
-	padding: 10px;
-    height: 350px;
+    /* padding: 10px; */
+    height: 20vw;
 }
 .post-footer-old {
 	text-align: end;
-    font-size: 15px;
+    font-size: 1vw;
     height: 30px;
     background-color: #e7e7e7;
     padding-right: 15px;
     padding-top: 5px;
 }
 
-/* Fake image */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  height: 200px;
-}
-/* Fake image */
-.media-format {
-  background-color: #aaa;
-  width: 100%;
-  height: 200px;
+
+
+
+
+@media screen and (max-width:917px) {
+	.post {
+		box-sizing: content-box;
+		color: #1abc9c !important;
+		margin-bottom: 10px;
+	}
+	.media-format {
+	  background-color: #aaa;
+	  width: 100%;
+	  height: 200px;
+	}
+	.post-body {
+    /* padding: 10px; */
+    height: 100%; 
+	}	
+	.container-fluid {
+		padding-bottom: 70px;
+		margin-left: 0%;
+		margin-right: 0%;
+	}	
 }
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 900px) {
-  .leftcolumn, .rightcolumn { 
-    width: 100%;
-    padding: 0;
-  }
+@media screen and (min-width:918px) and (max-width:1168px){
+	.container-fluid {
+		padding-bottom: 70px;
+		margin-left: 3%;
+		margin-right: 3%;
+	}	
+	.post {
+		box-sizing: content-box;
+		color: #1abc9c !important;
+		margin-bottom: 10px;
+		width: 48%;		
+		margin-left: 10px;
+		float: left;
+	}
+	.media-format {
+	  background-color: #aaa;
+	  width: 100%;
+	  height: 200px;
+	}
+	.post-body {
+    /* padding: 10px; */
+    height: 100%; 
+	}
+}
+
+@media screen and (min-width:1169px) and (max-width:1517px){
+	.container-fluid {
+		padding-bottom: 70px;
+		margin-left: 3%;
+		margin-right: 3%;
+	}	
+	.post {
+		box-sizing: content-box;
+		color: #1abc9c !important;
+		margin-bottom: 10px;
+		width: 31%;		
+		margin-left: 10px;
+		margin-right: 10px;
+		float: left;
+	}	
+	.media-format {
+	  background-color: #aaa;
+	  width: 100%;
+	  height: 200px;
+	}
+	.post-body {
+    /* padding: 10px; */
+    height: 100%; 
+	}
+}
+
+@media screen and (min-width:1517px) and (max-width:2020px){
+	.container-fluid {
+		padding-bottom: 70px;
+		margin-left: 3%;
+		margin-right: 3%;
+	}	
+	.post {
+		box-sizing: content-box;
+		color: #1abc9c !important;
+		margin-bottom: 10px;
+		width: 32%;		
+		margin-left: 10px;
+		margin-right: 10px;
+		float: left;
+	}	
+	.media-format {
+	  background-color: #aaa;
+	  width: 100%;
+	  height: 200px;
+	}
+	.post-body {
+    /* padding: 10px; */
+    height: 100%; 
+	}
+}
+
+@media screen and (min-width:2020px) and (max-width:3015px) {
+	.container-fluid {
+		padding-bottom: 70px;
+		margin-left: 0%;
+		margin-right: 0%;
+	}	
+	.post {
+		box-sizing: content-box;
+		color: #1abc9c !important;
+		margin-bottom: 10px;
+		width: 19%;		
+		margin-left: 10px;
+		margin-right: 10px;
+		float: left;
+	}	
+	.media-format {
+	  background-color: #aaa;
+	  width: 100%;
+	  height: 200px;
+	}
+	.post-body {
+    /* padding: 10px; */
+    height: 100%; 
+	}
+}
+
+@media screen and (min-width:3016px) {
+	.container-fluid {
+		padding-bottom: 70px;
+		margin-left: 3%;
+		margin-right: 3%;
+	}	
+	.post {
+		box-sizing: content-box;
+		color: #1abc9c !important;
+		margin-bottom: 10px;
+		width: 16%;		
+		margin-left: 10px;
+		margin-right: 10px;
+		float: left;
+	}	
+	.media-format {
+	  background-color: #aaa;
+	  width: 100%;
+	  height: 200px;
+	}
+	.post-body {
+    /* padding: 10px; */
+    height: 100%; 
+	}
 }
