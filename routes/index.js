@@ -42,4 +42,68 @@ router.get('/posts', function (req, res) {
     })
 });
 
+
+/* GET gallery */
+router.get('/gallery', function (req, res) {
+    var db = req.db;
+    var cursor = db.collection('posts').find()
+    db.collection('posts').find().toArray(function (err, result) {
+        if (err) return console.log(err)
+        res.render('gallery', {page: 'Gallery', menuId: 'gallery', posts: result});
+    })
+});
+
+/* GET route */
+router.get('/route', function (req, res) {
+    var db = req.db;
+    var cursor = db.collection('posts').find()
+    db.collection('posts').find().toArray(function (err, result) {
+        if (err) return console.log(err)
+        res.render('route', {page: 'Route', menuId: 'route', posts: result});
+    })
+});
+
+
+/* GET about */
+router.get('/about', function (req, res) {
+    var db = req.db;
+    var cursor = db.collection('posts').find()
+    db.collection('posts').find().toArray(function (err, result) {
+        if (err) return console.log(err)
+        res.render('about', {page: 'About Us', menuId: 'about', posts: result});
+    })
+});
+
+
+/* GET contact */
+router.get('/contact', function (req, res) {
+    var db = req.db;
+    var cursor = db.collection('posts').find()
+    db.collection('posts').find().toArray(function (err, result) {
+        if (err) return console.log(err)
+        res.render('contact', {page: 'Contact Us', menuId: 'contact', posts: result});
+    })
+});
+
+
+/* GET challenges */
+router.get('/challenges', function (req, res) {
+    var db = req.db;
+    var cursor = db.collection('posts').find()
+    db.collection('posts').find().toArray(function (err, result) {
+        if (err) return console.log(err)
+        res.render('challenges', {page: 'Challenges', menuId: 'challenges', posts: result});
+    })
+});
+
+/* GET login */
+router.get('/login', function (req, res) {
+    var db = req.db;
+    var cursor = db.collection('posts').find()
+    db.collection('posts').find().toArray(function (err, result) {
+        if (err) return console.log(err)
+        res.render('login', {page: 'Login', menuId: 'login', posts: result});
+    })
+});
+
 module.exports = router;

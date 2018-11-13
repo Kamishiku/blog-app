@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <% include partials/head %> 
+</head>
+<body>
+<% include partials/menu %>
+<div class="container-fluid bg-3 text-center">    
+  <h3><%= page %></h3><br>
+   <ul class="posts">
+  <% for(var i=0; i<posts.length; i++) {%>
+    <li class="post">
+      <p><%= posts[i].user_id %></p>
+      <p><%= posts[i].title %></p>
+      <p><%= posts[i].content %></p>
+      <p><%= posts[i].video_url %></p>
+      <p><%= posts[i].photo_collection %></p>
+      <p><%= posts[i].quote %></p>
+      <p><%= posts[i].datetime %></p>
+      <p><%= posts[i].like_count %></p>
+      <p><%= posts[i].deleted %></p>
+     
+    </li>
+  <% } %>
+  </ul>
+</div>
+</body>
+<% include partials/script %>
+</html>
