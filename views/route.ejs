@@ -5,24 +5,160 @@
 </head>
 <body>
 <% include partials/menu %>
-<div class="container-fluid bg-3 text-center">    
-  <h3><%= page %></h3><br>
-   <ul class="posts">
-  <% for(var i=0; i<posts.length; i++) {%>
-    <li class="post">
-      <p><%= posts[i].user_id %></p>
-      <p><%= posts[i].title %></p>
-      <p><%= posts[i].content %></p>
-      <p><%= posts[i].video_url %></p>
-      <p><%= posts[i].photo_collection %></p>
-      <p><%= posts[i].quote %></p>
-      <p><%= posts[i].datetime %></p>
-      <p><%= posts[i].like_count %></p>
-      <p><%= posts[i].deleted %></p>
-     
-    </li>
-  <% } %>
-  </ul>
+<div class="banner-xs">
+  <h1 class="banner-text-xs"><%= page %></h1>
+</div>
+<div class="container-fluid bg-dark">
+	<div class="container bg-light" >  
+      <img class="d-block mx-auto img-fluid" src="images/japan.png" alt="First">
+      <div class="card-deck" style="padding-top:1vw;" id="accordion">
+		  
+		  
+		  <div class="card bg-info" style="text-align:center;font-size:20px; margin-bottom:1vw;" data-toggle="collapse" data-target="#leg1collapse">
+			 <div class="card-body">
+				 <h5 class="card-title">Leg 1</h5>	
+		     </div>
+		  </div>
+		  
+		  		  
+
+		  
+		  
+		  <div class="card bg-info" style="text-align:center;font-size:20px; margin-bottom:1vw;" data-toggle="collapse" data-target="#leg2collapse">
+			  <div class="card-body">
+				 <h5 class="card-title" style="padding-top: 30px; padding-bottom:30px;">Leg 2</h5>
+			  </div>
+		  </div>
+		  
+		  
+		  
+		  
+		  
+		  
+		  <div class="card bg-info" style="text-align:center;font-size:20px; margin-bottom:1vw;">
+			 <div class="card-body">
+				 <h5 class="card-title" style="padding-top: 30px; padding-bottom:30px;">Leg 3</h5>
+			 </div>
+		  </div>
+		  
+		  
+		  
+		  
+		  
+		  <div class="card bg-info" style="text-align:center;font-size:20px; margin-bottom:1vw;" data-toggle="collapse" data-target="#collapseExample2">
+			 <div class="card-body">
+				 <h5 class="card-title" style="padding-top: 30px; padding-bottom:30px;">Leg 4</h5>
+			 </div>		
+		  </div>
+		  
+		  
+		  
+		  
+		  
+		  <div class="card bg-info" style="text-align:center;font-size:20px; margin-bottom:1vw;" data-toggle="collapse" data-target="#collapseExample">
+			 <div class="card-body">
+				 <h5 class="card-title" style="padding-top: 30px; padding-bottom:30px;">Leg 5</h5>
+		     </div>
+		  </div>
+		  
+		  
+		  
+		  <div class="collapse" id="leg1collapse" data-parent="#accordion" style="width:100%; margin-bottom:1vw;">
+				<div class="card-header">
+					<div class="card-title d-flex flex-nowrap">
+						<div class="mr-auto p-2"> Leg 1</div>
+						<div class="p-2"> Start Date - End Date</div>
+					</div>
+				</div>
+			  
+			    <div class="card card-body">
+					<div class="card-subtitle text-muted">
+						<h3> Hiroshima - Kyoto</h3>
+					</div>
+					
+					<div class="view z-depth-1" style="width:100%;">	
+						<img class="d-block w-35" src="images/Hiroshima.jpg" alt="Start">
+						<img class="d-block w-35" src="images/onomichi.jpg" alt="End">
+						<p>9999 Miles</p>					
+					</div>
+					
+				</div>
+		  </div>
+		  
+		  
+	<div id="leg2collapse" class="collapse" data-parent="#accordion" style="width:100%; margin-bottom:1vw;">
+		<div class="card">
+			<div class="p-2 mb-3 mx-3 mb-4">
+				<div class="card-title d-flex flex-nowrap">
+					<div class="mr-auto"> Leg 2</div>
+					<div> Start Date - End Date</div>
+				</div>
+			  	<div class="card-subtitle text-muted">
+					<p> Hiroshima - Kyoto</p>
+				</div>
+			</div>
+			<div class="card d-flex flex-nowrap mx-3" style="margin-bottom:1vw;"> 
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-5" style="padding:0;">
+							<img class="card-locations img-rounded" src="images/Hiroshima.jpg" alt="Start">
+							<div class="card-img-overlay">
+								<span class="card-title" style="font-size:4rem; text-color:white;">HIROSHIMA</span>
+							</div>
+						</div>
+						
+							<i class="fas fa-arrow-right fa-4x fa-fw col-sm-1" data-fa-transform="rotate-90" data-fa-mask="fas fa-cirlce"></i> 
+						
+						<div class="col-sm-5" style="padding:0;">
+							<img class="card-locations img-rounded" src="images/onomichi.jpg" alt="End">
+						</div>
+						<div class="col-sm-1" style="padding:0;">
+							<p>9999</p>
+							<p>Miles</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		 </div>
+	</div> 
+	
+	
+		  <div class="collapse" id="leg3collapse" data-parent="#accordion" style="width:100%">
+			  
+				  	<div class="card-title d-flex flex-nowrap">
+						<div class="mr-auto p-2"> Leg 3</div>
+						<div class="p-2"> Start Date - End Date</div>
+					</div>
+			  		<div class="card-subtitle text-muted">
+						<h3> Hiroshima - Kyoto</h3>
+				
+			    <div class="card card-body">
+
+					
+					<div>	
+						<img class="d-block w-35" src="Hiroshima.jpg" alt="Start">
+						<img class="d-block w-35" src="onomichi.jpg" alt="End">
+						<p>9999 Miles</p>					
+					</div>
+					
+				</div>
+				</div>
+		  </div>
+		  
+		  
+		  
+           <div class="collapse" id="collapseExample2" data-parent="#accordion">
+			    <div class="card card-body">
+					    collpase 2 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh he
+			    </div>
+		  </div>
+		  
+		  
+      </div>
+      
+          
+
+	</div>
 </div>
 </body>
 <% include partials/script %>

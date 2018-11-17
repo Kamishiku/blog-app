@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head style="height:100%;">
  <% include partials/head %> 
 </head>
-<body>
+<body style="min-height:100%;">
 <% include partials/menu %>
 <div class="banner">
   <h1 class="banner-text"><%= page %></h1>
 </div>
 <div class="container-fluid bg-dark">
-<div class="container bg-light">  
-      <img class="d-block w-100" src="1.png" alt="First slide">
-      <img class="d-block w-100" src="2.jpg" alt="Second slide">
-      <img class="d-block w-100" src="3.jpg" alt="Third slide">
+<div class="container gallery-container bg-light"> 
+	<div class="row">
+	<div class="col-md-4">
+		<div class="card">
+			<a class="lightbox" href="photos/1.png">
+				<img class="d-block w-100" src="photos/1.png" alt="First">
+			</a>
+		</div>
+	</div> 	
+	<div class="col-md-4">
+		<div class="card">
+			<a class="lightbox" href="images/2.png">
+				<img class="d-block w-100" src="images/2.jpg" alt="Second">
+			</a>
+		</div>
+	</div> 
+	<div class="col-md-4">
+		<div class="card">
+			<a class="lightbox" href="images/3.png">
+				<img class="d-block w-100" src="images/3.jpg" alt="Third">
+			</a>
+		</div>
+	</div> 
+	</div>
 </div>
 </div>
+
 </body>
 <% include partials/script %>
 </html>

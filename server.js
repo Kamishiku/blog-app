@@ -10,7 +10,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/stylesheets/fontawesome', express.static(__dirname + '/node_modules/@fortawesome/fontawesome-pro/'));
-app.use(express.static(path.join(__dirname, 'media/images')));
+app.use(express.static(path.join(__dirname, 'media')));
 
 // -----------------------------------------------//
 // Database Connection
@@ -69,5 +69,6 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
-  res.render('error', {status:err.status, message:err.message});
+        res.render('error', {error: err, message: 'route'});
+  //res.render('error', {status:err.status, message:err.message});
 });

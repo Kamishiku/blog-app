@@ -56,10 +56,10 @@ router.get('/gallery', function (req, res) {
 /* GET route */
 router.get('/route', function (req, res) {
     var db = req.db;
-    var cursor = db.collection('posts').find()
-    db.collection('posts').find().toArray(function (err, result) {
+    var cursor = db.collection('routes').find()
+    db.collection('routes').find().toArray(function (err, result) {
         if (err) return console.log(err)
-        res.render('route', {page: 'Route', menuId: 'route', posts: result});
+        res.render('route', {page: 'Route', menuId: 'route', routes: result});
     })
 });
 

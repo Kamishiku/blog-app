@@ -44,17 +44,28 @@
     padding-top: 5px;
 }
 
-
+.card-locations {
+	height:100px; 
+	width:100%; 
+	object-fit:cover;
+}
 
 
 @media screen and (min-width: 1200px) {
 .banner {
 	height: 20vw;
-}
+	}
+.banner-xs {
+	height: 5vw;
+	}
+	.banner-text-xs {
+	text-align:center; 
+	padding-top: 1vw;
+	}
 .banner-text {
-text-align:center; 
-padding-top: 8vw;
-}
+	text-align:center; 
+	padding-top: 8vw;
+	}
 }
 
 
