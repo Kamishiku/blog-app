@@ -3,7 +3,9 @@ const bodyParser= require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 const logger = require('morgan');
 const path = require('path');
-const app = express()
+const app = express();
+
+const fs = require('fs');
 
 app.use(bodyParser.json())
 app.set('views', path.join(__dirname, 'views'));
@@ -47,6 +49,19 @@ app.use(function(req,res,next){
     req.db = db;
     next();
 });
+
+fs.watch(path.join(__dirname, 'media/photos'), (eventType, filename) => {
+	console.log(eventType);
+	console.log(filename);
+	fs.readdr(path.join(__dirname, 'media/photos'), (err, files) => {
+		if(err) throw err;
+		files.forEach(function(file) {
+			console.log(file);
+		})
+	})
+})
+
+
 
 // -----------------------------------------------//
 // Routes

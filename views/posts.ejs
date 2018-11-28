@@ -5,24 +5,56 @@
 </head>
 <body>
 <% include partials/menu %>
-<div class="container-fluid bg-3 text-center">    
-  <h3><%= page %></h3><br>
-   <ul class="posts">
-  <% for(var i=0; i<posts.length; i++) {%>
-    <li class="post">
-      <p><%= posts[i].user_id %></p>
-      <p><%= posts[i].title %></p>
-      <p><%= posts[i].content %></p>
-      <p><%= posts[i].video_url %></p>
-      <p><%= posts[i].photo_collection %></p>
-      <p><%= posts[i].quote %></p>
-      <p><%= posts[i].datetime %></p>
-      <p><%= posts[i].like_count %></p>
-      <p><%= posts[i].deleted %></p>
-     
-    </li>
-  <% } %>
-  </ul>
+
+<div class="banner-xs">
+  <h1 class="banner-text-xs"><%= page %></h1>
+</div>
+<div class="container-fluid bg-dark">
+<div class="container gallery-container bg-light"> 
+	
+	<% for(var i = 0; i < posts.length; i++) { %>
+        <% if (posts[i].deleted = "false") { %>
+			<div class="card flex-row flex-wrap" style="margin-bottom:1vw;"> 
+				<div class="card-header border-0 col-lg-5">
+                    <% if (posts[i].video_url.length = 0) { %>
+						<object class="img-fluid media-format" data="https://www.youtube.com/embed/<%= posts[i].video_url %>"></object>
+                    <% } else{ %>
+						<img class="card-img-left" style="height:200px;">No Video</img>
+                    <% } %>
+                </div>
+                <div class="card-block px-2 col-lg-7">
+                    <h2><%= posts[i].title %></h2>
+                    <% if (posts[i].content.length > 100) { %>
+						<p class="card-text"><%= posts[i].content %>...</p>
+                    <% } else{ %>
+						<p class="card-text"><%= posts[i].content %></p>
+                    <% } %>
+                    <p href="/gallery"><%= posts[i].photo_collection %></p>
+               
+                    <p class="w-100">
+						<small class="text-muted">
+							<%= posts[i].user_id %><%= posts[i].datetime %>
+							Likes: <%= posts[i].like_count %>
+						</small>
+					</p>
+				</div>
+			</div>
+		<% } %>
+    <% } %>
+  
+    <form action="/" method="POST">
+        <input type="text" placeholder="user_id" name="user_id">
+        <input type="text" placeholder="title" name="title">
+        <input type="text" placeholder="content" name="content">
+        <input type="text" placeholder="video_url" name="video_url">
+        <input type="text" placeholder="photo_collection" name="photo_collection">
+        <input type="text" placeholder="datetime" name="datetime">
+        <input type="text" placeholder="like_count" name="like_count">
+        <!-- <button type="submit">Submit</button> !-->
+    </form>
+  
+  
+</div>
 </div>
 </body>
 <% include partials/script %>
